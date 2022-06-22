@@ -7,9 +7,7 @@ using UnityEngine.UI;
 // https://blog.birost.com/a?ID=01650-cc0220d7-0c42-4688-afab-40faca7a671e
 public class Pedometer : MonoBehaviour
 {
-    public TextMeshProUGUI statusText, stepsText;
-    [SerializeField]
-    private Animator humanAnimator; // 캐릭터 애니메이터
+    // public TextMeshProUGUI statusText, stepsText;
     public float lowLimit = 0.005f;//slow
     public float highLimit = 0.1f;//peaks and valleys when walking
     public float vertHighLimit = 0.25f;//The peak and valley when jumping
@@ -18,15 +16,16 @@ public class Pedometer : MonoBehaviour
     private float filterAverage = 0.1f;//Filter parameters to get the average
     private float accelerationCurrent = 0f;//fitting value
     private float accelerationAverage = 0f;//Average
-    private int steps = 0;//number of steps
     private int oldSteps;
     private float deltaTime = 0f;//Timer
     private int jumpCount = 0;//jump count
     private int oldjumpCount = 0;
 
+    public int steps = 0;//number of steps
+    public bool isWalking = false;
+    public bool isJumping = false;
+
     private bool startTimer = false;//Start timing
-    private bool isWalking = false;
-    private bool isJumping = false;
 
     void Awake()
     {
@@ -38,11 +37,6 @@ public class Pedometer : MonoBehaviour
     void Update()
     {
         checkWalkingAndJumping();//Check whether to walk
-
-        if (isWalking || isJumping)     // 움직이고 있으면 걷기 애니메이션
-            humanAnimator.SetBool("isRun", true);
-        else    // 움직이지 않고 있으면 가만히 서기 애니메이션
-            humanAnimator.SetBool("isRun", false);
     }
 
     void FixedUpdate()
@@ -60,13 +54,13 @@ public class Pedometer : MonoBehaviour
             {
                 isHigh = true;
                 steps++;
-                stepsText.text = "Number of steps: " + steps + "\nNumber of jumps: " + jumpCount;
+                //stepsText.text = "Number of steps: " + steps + "\nNumber of jumps: " + jumpCount;
             }
             if (delta > vertHighLimit)
             {
                 isHigh = true;
                 jumpCount++;
-                stepsText.text = "Number of steps: " + steps + "\nNumber of jumps:" + jumpCount;
+                //stepsText.text = "Number of steps: " + steps + "\nNumber of jumps:" + jumpCount;
             }
         }
         else
