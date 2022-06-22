@@ -5,6 +5,8 @@ using UnityEngine;
 public class SightGameManager : MonoBehaviour
 {
     [SerializeField]
+    private GameObject choices;     // 선택지
+    [SerializeField]
     private Vector3 spawnPosition;  // 물체 생성 위치
     [SerializeField]
     private float delayTime;        // 물체마다 생성되는 시간 간격
@@ -54,6 +56,6 @@ public class SightGameManager : MonoBehaviour
     // 물체가 다 날아간 후 선택지 보여주기
     private void ShowChoices()
     {
-
+        choices.SetActive(true);
     }
 }
