@@ -46,9 +46,7 @@ public class SightGameManager : MonoBehaviour
             System.Random random = new System.Random();
             objectName = objectList[random.Next(objectList.Count)];
             if (spawnObjectList.Exists(x=>x== objectName))
-            {
                 continue;
-            }
             spawnObjectList.Add(objectName);
         }
     }
@@ -56,13 +54,18 @@ public class SightGameManager : MonoBehaviour
     // delayTime마다 물체 스폰
     IEnumerator SpawnObjectCoroutine()
     {
+        List<GameObject> spawnList = new List<GameObject>();    // 스폰한 오브젝트를 담을 리스트
         foreach (string objName in spawnObjectList)
         {
             GameObject prefab = Resources.Load("Prefabs/" + objName) as GameObject;
             spriteList.Add(prefab.GetComponent<SpriteRenderer>().sprite);
-            Instantiate(prefab, spawnPosition, Quaternion.identity);
+            spawnList.Add(Instantiate(prefab, spawnPosition, Quaternion.identity));
             yield return new WaitForSeconds(delayTime);
         }
+
+        // 스폰했던 오브젝트 파괴
+        foreach (GameObject obj in spawnList)
+            Destroy(obj);
 
         SetChoices();   // 선택지에 이미지 세팅
         ShowChoices();  // 선택지 보여주기
