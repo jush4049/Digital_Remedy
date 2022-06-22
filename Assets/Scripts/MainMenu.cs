@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -23,11 +24,11 @@ public class MainMenu : MonoBehaviour
 
     public void ClickStart()
     {
-        Debug.Log("시작");
+        SceneManager.LoadScene("GameSelect");
     }
 
     public void ClickSetting()
     {
-        Debug.Log("설정");
+        SceneManager.LoadScene("Setting");
     }
 }
