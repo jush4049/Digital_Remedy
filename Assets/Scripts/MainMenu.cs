@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField]
-    GameObject settingUI; // 설정UI 오브젝트
+
+    public ToggleButtonManager toggleButtonManager;
+    public GameObject settingUI; // 설정UI 오브젝트
 
     public void ClickEmergencyStart()
     {
-        Debug.Log("[LoadScene]EmergencyStart");
+        string selectedGameName = toggleButtonManager.GetSelectedGameString();
+
+        if(selectedGameName != "")
+            SceneManager.LoadScene(selectedGameName);
     }
 
     public void ClickStart()
