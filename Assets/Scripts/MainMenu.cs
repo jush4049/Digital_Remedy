@@ -19,16 +19,18 @@ public class MainMenu : MonoBehaviour
 
     public void ClickEmergencyStart()
     {
-        Debug.Log("응급 시작");
+        Debug.Log("[LoadScene]EmergencyStart");
     }
 
     public void ClickStart()
     {
         SceneManager.LoadScene("GameSelect");
+        Debug.Log("[LoadScene]GameSelect");
     }
 
     public void ClickSetting()
     {
         SceneManager.LoadScene("Setting");
+        Debug.Log("[LoadScene]Setting");
     }
 }
