@@ -4,10 +4,12 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 #pragma warning disable CS0618
 
+// https://blog.birost.com/a?ID=01650-cc0220d7-0c42-4688-afab-40faca7a671e
 public class Pedometer : MonoBehaviour
 {
-
     public TextMeshProUGUI statusText, stepsText;
+    [SerializeField]
+    private Animator humanAnimator; // 캐릭터 애니메이터
     public float lowLimit = 0.005f;//slow
     public float highLimit = 0.1f;//peaks and valleys when walking
     public float vertHighLimit = 0.25f;//The peak and valley when jumping
@@ -37,20 +39,10 @@ public class Pedometer : MonoBehaviour
     {
         checkWalkingAndJumping();//Check whether to walk
 
-        if (isWalking)
-        {
-            statusText.text = ("Status: Walking");
-
-        }
-        else if (!isWalking)
-        {
-            statusText.text = ("Status: Not Moving");
-        }
-
-        if (isJumping)
-        {
-            statusText.text = ("Status: Jumping");
-        }
+        if (isWalking || isJumping)     // 움직이고 있으면 걷기 애니메이션
+            humanAnimator.SetBool("isRun", true);
+        else    // 움직이지 않고 있으면 가만히 서기 애니메이션
+            humanAnimator.SetBool("isRun", false);
     }
 
     void FixedUpdate()
@@ -81,7 +73,6 @@ public class Pedometer : MonoBehaviour
         {
             if (delta < lowLimit)//lower
             {
-
                 isHigh = false;
             }
         }
