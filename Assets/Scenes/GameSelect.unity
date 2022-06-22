@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 224223326}
   - component: {fileID: 224223325}
   m_Layer: 5
-  m_Name: Setting Button
+  m_Name: Breathing Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -636,7 +636,7 @@ GameObject:
   - component: {fileID: 770287292}
   - component: {fileID: 770287291}
   m_Layer: 5
-  m_Name: Start Button
+  m_Name: Hearing Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1040,7 +1040,7 @@ GameObject:
   - component: {fileID: 1640110528}
   - component: {fileID: 1640110527}
   m_Layer: 5
-  m_Name: Emergency Start Button
+  m_Name: Sight Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
