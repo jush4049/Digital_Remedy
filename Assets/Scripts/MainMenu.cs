@@ -5,17 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField]
+    GameObject settingUI; // 설정UI 오브젝트
 
     public void ClickEmergencyStart()
     {
@@ -30,7 +21,11 @@ public class MainMenu : MonoBehaviour
 
     public void ClickSetting()
     {
-        SceneManager.LoadScene("Setting");
-        Debug.Log("[LoadScene]Setting");
+        settingUI.SetActive(true);
+    }
+
+    public void ClickExitSetting()
+    {
+        settingUI.SetActive(false);
     }
 }
