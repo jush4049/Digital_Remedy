@@ -88,12 +88,15 @@ public class SightGameManager : MonoBehaviour
         {
             if (!correctChoicesList.Exists(x=>x==btn))  // btn이 아직 이미지가 세팅되지 않은 선택지
             {
-                string objectName = objectList[random.Next(objectList.Count)];
-                if (!spawnObjectList.Exists(x => x == objectName))
+                string objectName;
+                do
                 {
-                    GameObject prefab = Resources.Load("Prefabs/" + objectName) as GameObject;
-                    btn.transform.Find("Image").GetComponent<Image>().sprite = prefab.GetComponent<SpriteRenderer>().sprite;
-                }
+                    objectName = objectList[random.Next(objectList.Count)];
+                } while (spawnObjectList.Exists(x => x == objectName)); // 정답이 아닌 물체 결정
+
+                // 아직 이미지가 세팅되지 않은 선택지에 정답이 아닌 이미지 세팅
+                GameObject prefab = Resources.Load("Prefabs/" + objectName) as GameObject;
+                btn.transform.Find("Image").GetComponent<Image>().sprite = prefab.GetComponent<SpriteRenderer>().sprite;
             }
         }
     }
