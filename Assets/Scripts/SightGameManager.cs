@@ -107,6 +107,7 @@ public class SightGameManager : MonoBehaviour
     // 선택지 버튼 클릭
     public void ClickChoiceButton()
     {
+        Debug.Log("클릭!");
         GameObject currentObj = EventSystem.current.currentSelectedGameObject;
         if (!clickChoicesList.Exists(x => x == currentObj))
         {
@@ -114,5 +115,32 @@ public class SightGameManager : MonoBehaviour
             TextMeshProUGUI order = currentObj.transform.Find("Order").GetComponent<TextMeshProUGUI>();
             order.text = clickChoicesList.Count.ToString();
         }
+
+        ShowResult();
+    }
+
+    private void ShowResult()
+    {
+        if (clickChoicesList.Count == spawnNum) // 모두 선택했으면 정답인지 확인
+        {
+            if (DecideAnswer())
+            {
+                Debug.Log("정답!");
+            }
+            else
+            {
+                Debug.Log("오답");
+            }
+        }
+    }
+
+    private bool DecideAnswer()
+    {
+        for (int i = 0; i < spawnNum; i++)
+        {
+            if (!(clickChoicesList[i] == correctChoicesList[i]))
+                return false;
+        }
+        return true;
     }
 }
