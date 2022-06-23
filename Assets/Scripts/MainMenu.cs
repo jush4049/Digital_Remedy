@@ -1,33 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public ToggleButtonManager toggleButtonManager;
+    public GameObject settingUI; // 설정UI 오브젝트
 
     public void ClickEmergencyStart()
     {
-        Debug.Log("응급 시작");
+        string selectedGameName = toggleButtonManager.GetSelectedGameString();
+
+        if(selectedGameName != "")
+            SceneManager.LoadScene(selectedGameName);
     }
 
     public void ClickStart()
     {
-        Debug.Log("시작");
+        SceneManager.LoadScene("GameSelect");
+        Debug.Log("[LoadScene]GameSelect");
     }
 
     public void ClickSetting()
     {
-        Debug.Log("설정");
+        settingUI.SetActive(true);
+    }
+
+    public void ClickExitSetting()
+    {
+        settingUI.SetActive(false);
     }
 }
