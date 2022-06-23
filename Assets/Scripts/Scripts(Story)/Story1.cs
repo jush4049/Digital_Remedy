@@ -8,7 +8,7 @@ using TMPro;
 
 public class Story1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    public TextMeshPro NameText; // 등장인물 이름 텍스트
+    public Text NameText; // 등장인물 이름 텍스트
     public Text ScriptText; // 대사 텍스트
     public string writerText = "";
 
