@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Story7 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    public Text NameText; // 등장인물 이름 텍스트
-    public Text ScriptText; // 대사 텍스트
+    public TextMeshProUGUI NameText; // 등장인물 이름 텍스트
+    public TextMeshProUGUI ScriptText; // 대사 텍스트
     public string writerText = "";
 
     public GameObject AcademyImage;

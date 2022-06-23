@@ -8,8 +8,8 @@ using TMPro;
 
 public class Story1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    public Text NameText; // 등장인물 이름 텍스트
-    public Text ScriptText; // 대사 텍스트
+    public TextMeshProUGUI NameText; // 등장인물 이름 텍스트
+    public TextMeshProUGUI ScriptText; // 대사 텍스트
     public string writerText = "";
 
     public List<KeyCode> skipButton; // 대화를 빠르게 넘길 수 있는 키
