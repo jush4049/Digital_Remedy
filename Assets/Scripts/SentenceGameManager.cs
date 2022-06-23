@@ -3,19 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class SentenceGameManager : MonoBehaviour
 {
     public Canvas canvas1;  //캔버스
     public Canvas canvas2;
 
-    /*public GameObject choice1;  //선택지 버튼
-    public GameObject choice2;*/
-    /*public List<Button> buttonList1;  //선택지 버튼
-    public List<Button> buttonList2;
-
-    public Text btnText;
-*/
     public List<TextMeshProUGUI> btnText1;
     public List<TextMeshProUGUI> btnText2;
 
@@ -25,20 +19,18 @@ public class SentenceGameManager : MonoBehaviour
     private List<string> mixList1;  //랜덤 돌린 리스트
     private List<string> mixList2;  //랜덤 돌린 리스트
 
-    public List<Button> clickChoicesList1;  //사용자가 선택한 리스트
-    public List<Button> clickChoicesList2;  //사용자가 선택한 리스트
+    private List<string> clickChoicesList = new List<string>();
+    public List<TextMeshProUGUI> clickChoicesList1;  //사용자가 선택한 리스트
+    public List<TextMeshProUGUI> clickChoicesList2;  //사용자가 선택한 리스트
 
     // Start is called before the first frame update
     void Start()
     {
-        /*canvas2 = GetComponent<Canvas>();
-        canvas1 = GetComponent<Canvas>();
-*/
         canvas2.enabled = false;
         canvas1.enabled = true;
         wordList1 = new List<string>() { "저의", "발표주제는", "디지털 치료제" };
         wordList2 = new List<string>() { "독성 및 부작용", "저렴한 비용으로", "대량 공급이" };
-        
+
         Mix();
     }
 
@@ -52,20 +44,19 @@ public class SentenceGameManager : MonoBehaviour
     {
         List<string> newList = new List<string>();
 
-        int count1 = wordList1.Count;
-        int count2 = wordList2.Count;
-
-        for(int i=0; i<count1; i++)
+        for(int i=0; i<3; i++)
         {
-            int rand = Random.Range(0, count1-1);
+            int rand = Random.Range(0, wordList1.Count);
             newList.Add(wordList1[rand]);
+            wordList1.RemoveAt(rand);
         }
         mixList1 = newList;
 
-        for(int i=0; i<count2; i++)
+        for(int i=0; i<3; i++)
         {
-            int rand = Random.Range(0, count2 - 1);
+            int rand = Random.Range(0, wordList2.Count);
             newList.Add(wordList2[rand]);
+            wordList2.RemoveAt(rand);
         }
         mixList2 = newList;
 
@@ -74,15 +65,67 @@ public class SentenceGameManager : MonoBehaviour
 
     void AppendButtonText()  //랜덤으로 돌린 문자열 버튼에 붙이기
     {
-        for(int i=0; i<mixList1.Count; i++)
+        for(int i=0; i<3; i++)
         {
             btnText1[i].text = mixList1[i];
         }
 
-        for (int i = 0; i < mixList2.Count; i++)
+        for (int i = 0; i < 3; i++)
         {
             btnText2[i].text = mixList2[i];
         }
     }
 
+    public void ClickChoiceButton()
+    {
+        Debug.Log("클릭!");
+        GameObject currentObj = EventSystem.current.currentSelectedGameObject;
+        string text = currentObj.GetComponentInChildren<TextMeshProUGUI>().text;
+        Debug.Log(text);
+        clickChoicesList.Add(text);
+
+        if (clickChoicesList.Count == 3)
+            ShowResult(clickChoicesList);
+    }
+
+    void ShowResult(List<string> choice)
+    {
+        if (DecideAnswer(choice))
+        {
+            Debug.Log("Correct!");
+        }
+        else
+        {
+            Debug.Log("Wrong!");
+        }
+    }
+
+
+    bool DecideAnswer(List<string> choice)
+    {
+        if (canvas1.enabled)
+        {
+            wordList1 = new List<string>() { "저의", "발표주제는", "디지털 치료제" };
+            for(int i=0; i<3; i++)
+            {
+                if (choice[i].ToString() != wordList1[i].ToString())
+                    return false;
+            }
+            clickChoicesList.Clear();
+            canvas1.enabled = false;
+            canvas2.enabled = true;
+            return true;
+            
+        }
+        else if (canvas2.enabled)
+        {
+            wordList2 = new List<string>() { "독성 및 부작용", "저렴한 비용으로", "대량 공급이" };
+            for (int i = 0; i < 3; i++)
+            {
+                if (choice[i].ToString() != wordList2[i].ToString())
+                    return false;
+            }
+        }
+        return true;
+    }
 }
