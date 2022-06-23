@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -20, y: -20}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &13206829
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5a2f6551e2d89274698e6c8ed75fb80e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2cb5d8329fe554f84b289db2aac8dd93, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -314,8 +314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uACF5\uD669\uC7A5\uC560\uB85C \uACE0\uC0DD\uC911\uC778 \uB2F9\uC2E0\uC744
-    \uC704\uD55C"
+  m_text: 'Re : Mind'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6719fab3af634c248b769c85f9560b3b, type: 2}
   m_sharedMaterial: {fileID: -8583058715504381293, guid: 6719fab3af634c248b769c85f9560b3b, type: 2}
@@ -505,8 +504,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -682,14 +681,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.50980395, g: 0.4509804, b: 0.5921569, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: ab47cd2525a36e24b81b2323e5be0e0f, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1413,14 +1412,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.50980395, g: 0.4509804, b: 0.5921569, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: ab47cd2525a36e24b81b2323e5be0e0f, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1678,8 +1677,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1845,8 +1844,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2976,14 +2975,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.50980395, g: 0.4509804, b: 0.5921569, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: ab47cd2525a36e24b81b2323e5be0e0f, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3933,7 +3932,7 @@ MonoBehaviour:
   onSprite: {fileID: 21300000, guid: 73f86462d8ca748bfa6ce29a228ceb7b, type: 3}
   offSprite: {fileID: 21300000, guid: 292a2d83002c94c4c9ad558eca6802d7, type: 3}
   toggleBackgroundGraphic: {fileID: 3469705517413267970}
-  onBackgroundSprite: {fileID: 21300000, guid: 48f927e1c370d204c9bd2ac65555e021, type: 3}
+  onBackgroundSprite: {fileID: 21300000, guid: 335fd6229bf754a4798d47af349b4efa, type: 3}
   offBackgroundSprite: {fileID: 21300000, guid: 9e127c9cb1c707240aacc05b532a3e18, type: 3}
 --- !u!82 &3416161222073246046
 AudioSource:
@@ -4059,7 +4058,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 48f927e1c370d204c9bd2ac65555e021, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 335fd6229bf754a4798d47af349b4efa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4266,7 +4265,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 48f927e1c370d204c9bd2ac65555e021, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 335fd6229bf754a4798d47af349b4efa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4529,7 +4528,7 @@ MonoBehaviour:
   onSprite: {fileID: 21300000, guid: 73f86462d8ca748bfa6ce29a228ceb7b, type: 3}
   offSprite: {fileID: 21300000, guid: 292a2d83002c94c4c9ad558eca6802d7, type: 3}
   toggleBackgroundGraphic: {fileID: 5472972368465821798}
-  onBackgroundSprite: {fileID: 21300000, guid: 48f927e1c370d204c9bd2ac65555e021, type: 3}
+  onBackgroundSprite: {fileID: 21300000, guid: 335fd6229bf754a4798d47af349b4efa, type: 3}
   offBackgroundSprite: {fileID: 21300000, guid: 9e127c9cb1c707240aacc05b532a3e18, type: 3}
 --- !u!114 &6878844172564617236
 MonoBehaviour:
