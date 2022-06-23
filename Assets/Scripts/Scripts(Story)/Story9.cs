@@ -14,6 +14,7 @@ public class Story9 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public GameObject NightRoomImage;
     public GameObject Note1;
     public GameObject Note2;
+    public GameObject EndingCredit;
     public List<KeyCode> skipButton; // 대화를 빠르게 넘길 수 있는 키
     bool isButtonClicked = false;
 
@@ -65,6 +66,7 @@ public class Story9 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     IEnumerator StoryOn()
     {
+        EndingCredit.SetActive(false);
         Note1.SetActive(false);
         Note2.SetActive(false);
         NightRoomImage.SetActive(true);
@@ -86,6 +88,8 @@ public class Story9 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         yield return StartCoroutine(NormalScript("주인공", "오늘 나의 시도는 나름 성공적이었던 것 같아"));
         yield return StartCoroutine(NormalScript("주인공", "내일도 나는 잘 해낼 수 있을거야!"));
         yield return StartCoroutine(NormalScript("나레이션", "게임을 플레이 해주셔서 감사합니다!"));
+        EndingCredit.SetActive(true);
+        yield return StartCoroutine(NormalScript("Credit", "Produced by 건강지킴이 팀"));
         SceneManager.LoadScene("MainMenu");
     }
 }
