@@ -539,7 +539,6 @@ GameObject:
   - component: {fileID: 8727102372538637971}
   - component: {fileID: 8727102372538637968}
   - component: {fileID: 8727102372538637969}
-  - component: {fileID: 5177323093556285174}
   m_Layer: 5
   m_Name: Button (Legacy) (9)
   m_TagString: Untagged
@@ -650,19 +649,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5177323093556285174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8727102372538637983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b4d29646fef9e7468c3893fbd5bd793, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MenuPanel: {fileID: 8727102373132728900}
 --- !u!1 &8727102373132728900
 GameObject:
   m_ObjectHideFlags: 0
