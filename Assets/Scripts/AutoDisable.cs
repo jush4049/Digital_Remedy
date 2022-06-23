@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AutoDisable : MonoBehaviour
 {
-    private float waitingTime;
+    public float waitingTime;
     public float disableTime;
 
     private void Awake()
