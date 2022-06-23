@@ -12,7 +12,7 @@ public class SightGameManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> buttonList;     // 선택지 버튼
     [SerializeField]
-    private GameObject resultWindow; // 결과창
+    private GameObject successWindow, failWindow;   // 결과창
     [SerializeField]
     private Vector3 spawnPosition;  // 물체 생성 위치
     [SerializeField]
@@ -132,10 +132,14 @@ public class SightGameManager : MonoBehaviour
         if (clickChoicesList.Count == spawnNum) // 모두 선택했으면 정답인지 확인
         {
             if (DecideAnswer())
-                resultWindow.transform.Find("ResultText").GetComponent<TextMeshProUGUI>().text = "성공!";
+            {
+                successWindow.SetActive(true);
+            }
             else
-                resultWindow.transform.Find("ResultText").GetComponent<TextMeshProUGUI>().text = "실패..";
-            resultWindow.SetActive(true);
+            {
+                failWindow.SetActive(true);
+            }
+            choices.SetActive(false);
         }
     }
 
@@ -147,5 +151,26 @@ public class SightGameManager : MonoBehaviour
                 return false;
         }
         return true;
+    }
+
+    // 다시 시작 클릭
+    public void ClickRestart()
+    {
+        failWindow.SetActive(false);
+
+        // 리스트 초기화
+        spawnObjectList = new List<string>();
+        spriteList = new List<Sprite>();
+        correctChoicesList = new List<GameObject>();
+        clickChoicesList = new List<GameObject>();
+
+        // 클릭 순서 표시 텍스트 초기화
+        foreach (GameObject btn in buttonList)
+        {
+            btn.transform.Find("Order").GetComponent<TextMeshProUGUI>().text = "";
+        }
+
+        SelectRandomObject();   // 스폰할 3개의 물체 고르기
+        StartCoroutine("SpawnObjectCoroutine"); // delayTime마다 물체 스폰
     }
 }
