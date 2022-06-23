@@ -7,7 +7,7 @@ public class LockManager : MonoBehaviour
 {
     public AudioSource unlockSound;
     public GameObject wrongAnswerTextObject;
-
+    public GameObject currectAnswerObject;
 
     [Tooltip("100>10>1 이렇게 높은자리부터 낮은자리순으로 넣어야 함")]
     public TextMeshProUGUI[] lockTexts;
@@ -34,7 +34,10 @@ public class LockManager : MonoBehaviour
     private void checkCurrectAnswer()
     {
         if (answer == userAnswer) // 정답일때 처리
+        {
             unlockSound.Play();
+            currectAnswerObject.SetActive(true);
+        }    
         else // 오답일때 처리
             wrongAnswerTextObject.SetActive(true);
     }
