@@ -898,6 +898,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1780916002}
     m_Modifications:
+    - target: {fileID: 4679790819694685846, guid: df724102cc34c4945b29d588a93de2a8, type: 3}
+      propertyPath: m_text
+      value: Breathe
+      objectReference: {fileID: 0}
     - target: {fileID: 4679790820182177265, guid: df724102cc34c4945b29d588a93de2a8, type: 3}
       propertyPath: m_Name
       value: TopBar2
