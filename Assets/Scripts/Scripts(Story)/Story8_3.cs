@@ -62,9 +62,9 @@ public class Story8_3 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     IEnumerator StoryOn()
     {
-        yield return StartCoroutine(NormalScript("상담전화", "네 안녕하세요. 24시간 정신건강상담전화입니다. 무엇을 도와드릴까요?"));
+        yield return StartCoroutine(NormalScript("상담원", "네 안녕하세요. 24시간 정신건강상담전화입니다. 무엇을 도와드릴까요?"));
         yield return StartCoroutine(NormalScript("주인공", "으으.. 심장이 또 두근거려요.. 어떡하죠"));
-        yield return StartCoroutine(NormalScript("상담전화", "자 우선은 진정하시고 숨을 크게 들이마셨다가 내쉬어 보세요."));
+        yield return StartCoroutine(NormalScript("상담원", "자 우선은 진정하시고 숨을 크게 들이마셨다가 내쉬어 보세요."));
         yield return StartCoroutine(NormalScript("나레이션", "주인공은 상담원의 도움에 따라 진정되었고 무사히 집으로 돌아갔다."));
         SceneManager.LoadScene("Chapter9");
     }

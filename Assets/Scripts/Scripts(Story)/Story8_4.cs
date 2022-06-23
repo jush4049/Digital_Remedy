@@ -62,9 +62,9 @@ public class Story8_4 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     IEnumerator StoryOn()
     {
-        yield return StartCoroutine(NormalScript("청소년전화", "네 안녕하세요. 24시간 청소년전화입니다. 무엇을 도와드릴까요?"));
+        yield return StartCoroutine(NormalScript("상담원", "네 안녕하세요. 24시간 청소년전화입니다. 무엇을 도와드릴까요?"));
         yield return StartCoroutine(NormalScript("주인공", "으으.. 심장이 또 두근거려요.. 어떡하죠"));
-        yield return StartCoroutine(NormalScript("청소년전화", "학생분 우선 진정하시고 자세한 증상을 알려주실수 있으신가요?"));
+        yield return StartCoroutine(NormalScript("상담원", "학생분 우선 진정하시고 자세한 증상을 알려주실수 있으신가요?"));
         yield return StartCoroutine(NormalScript("나레이션", "주인공은 상담원의 도움에 따라 진정되었고 무사히 집으로 돌아갔다."));
         SceneManager.LoadScene("Chapter9");
     }
