@@ -10,7 +10,7 @@ public class LockManager : MonoBehaviour
     public GameObject wrongAnswerTextObject;
     public GameObject currectAnswerObject;
 
-    public GameObject GoSceneButton;
+    public GameObject successWindow;
 
     [Tooltip("100>10>1 이렇게 높은자리부터 낮은자리순으로 넣어야 함")]
     public TextMeshProUGUI[] lockTexts;
@@ -20,7 +20,6 @@ public class LockManager : MonoBehaviour
     
     void Start()
     {
-        GoSceneButton.SetActive(false);
     }
     public void SubmitAnswer()
     {
@@ -46,7 +45,7 @@ public class LockManager : MonoBehaviour
         {
             unlockSound.Play();
             currectAnswerObject.SetActive(true);
-            GoSceneButton.SetActive(true);
+            successWindow.SetActive(true);
         }    
         else // 오답일때 처리
             wrongAnswerTextObject.SetActive(true);
