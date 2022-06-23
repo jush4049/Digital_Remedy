@@ -12,6 +12,8 @@ public class SightGameManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> buttonList;     // 선택지 버튼
     [SerializeField]
+    private GameObject resultWindow; // 결과창
+    [SerializeField]
     private Vector3 spawnPosition;  // 물체 생성 위치
     [SerializeField]
     private float delayTime;        // 물체가 생성되는 시간 간격
@@ -130,13 +132,10 @@ public class SightGameManager : MonoBehaviour
         if (clickChoicesList.Count == spawnNum) // 모두 선택했으면 정답인지 확인
         {
             if (DecideAnswer())
-            {
-                Debug.Log("정답!");
-            }
+                resultWindow.transform.Find("ResultText").GetComponent<TextMeshProUGUI>().text = "성공!";
             else
-            {
-                Debug.Log("오답");
-            }
+                resultWindow.transform.Find("ResultText").GetComponent<TextMeshProUGUI>().text = "실패..";
+            resultWindow.SetActive(true);
         }
     }
 
