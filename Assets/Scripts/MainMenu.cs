@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
+    [SerializeField]
+    private Animator animator;
     public ToggleButtonManager toggleButtonManager;
-    public GameObject settingUI; // 설정UI 오브젝트
 
     public void ClickEmergencyStart()
     {
@@ -25,11 +25,11 @@ public class MainMenu : MonoBehaviour
 
     public void ClickSetting()
     {
-        settingUI.SetActive(true);
+        animator.SetBool("Appear", true);
     }
 
     public void ClickExitSetting()
     {
-        settingUI.SetActive(false);
+        animator.SetBool("Appear", false);
     }
 }
