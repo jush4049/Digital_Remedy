@@ -11,10 +11,10 @@ public class Story4 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public Text ScriptText; // 대사 텍스트
     public string writerText = "";
 
-    public GameObject ClassImage;
     public List<KeyCode> skipButton; // 대화를 빠르게 넘길 수 있는 키
     bool isButtonClicked = false;
 
+    public GameObject ClassImage;
     void Start()
     {
         StartCoroutine(StoryOn());
@@ -23,13 +23,6 @@ public class Story4 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     // Update is called once per frame
     void Update()
     {
-        foreach (var element in skipButton) // 버튼 검사
-        {
-            if (Input.GetKeyDown(element))
-            {
-                isButtonClicked = true;
-            }
-        }
     }
     public void OnPointerDown(PointerEventData pointerEventData) // 버튼을 누를 시
     {

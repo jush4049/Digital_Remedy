@@ -13,8 +13,6 @@ public class Story8 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public GameObject NightStreetImage;
     public GameObject BlackImage;
-    public GameObject FourAnswer;
-    public GameObject TouchPanel;
     public List<KeyCode> skipButton; // 대화를 빠르게 넘길 수 있는 키
     bool isButtonClicked = false;
 

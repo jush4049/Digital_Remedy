@@ -24,13 +24,7 @@ public class Story7 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     // Update is called once per frame
     void Update()
     {
-        foreach (var element in skipButton) // 버튼 검사
-        {
-            if (Input.GetKeyDown(element))
-            {
-                isButtonClicked = true;
-            }
-        }
+        
     }
     public void OnPointerDown(PointerEventData pointerEventData) // 버튼을 누를 시
     {

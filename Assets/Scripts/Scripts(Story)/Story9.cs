@@ -18,6 +18,7 @@ public class Story9 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public List<KeyCode> skipButton; // 대화를 빠르게 넘길 수 있는 키
     bool isButtonClicked = false;
 
+    public GameObject SaveButton;
     void Start()
     {
         StartCoroutine(StoryOn());
@@ -66,6 +67,7 @@ public class Story9 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     IEnumerator StoryOn()
     {
+        SaveButton.SetActive(false);
         EndingCredit.SetActive(false);
         Note1.SetActive(false);
         Note2.SetActive(false);
@@ -76,12 +78,14 @@ public class Story9 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         yield return StartCoroutine(NormalScript("주인공", "오늘 참 많은 일이 있었네.."));
         yield return StartCoroutine(NormalScript("주인공", "나를 불안하게 하는 상황들을 한번 적어보자"));
         Note1.SetActive(true);
+        SaveButton.SetActive(true);
         yield return StartCoroutine(NormalScript("", ""));
         yield return StartCoroutine(NormalScript("주인공", "또.. 오늘 내가 느꼈던 불안했던 감정들도 적어보자"));
         Note1.SetActive(false);
         Note2.SetActive(true);
         yield return StartCoroutine(NormalScript("", ""));
         Note2.SetActive(false);
+        SaveButton.SetActive(false);
         yield return StartCoroutine(NormalScript("주인공", "이렇게 나의 불안을 매일 기록해보니까 언제, 어디서 공황이 일어나는지 파악할 수 있네"));
         yield return StartCoroutine(NormalScript("주인공", "나 자신에 대한 통제감을 갖는데 도움이 되는 것 같아"));
         yield return StartCoroutine(NormalScript("주인공", "그리고 변화하기 위한 나의 시도가 성공했는지도 평가하게 되네"));
