@@ -20,7 +20,7 @@ public class TakeMedicine : MonoBehaviour
     [SerializeField]
     private int playTime;   // 게임 진행 시간
 
-    private int red, blue;  // 약마다 먹어야 하는 수량
+    private int redGoal, blueGoal;  // 약마다 먹어야 하는 수량
     private int height, width;    // 화면 크기
     private int redScore, blueScore;    // 먹은 약 개수
 
@@ -66,14 +66,14 @@ public class TakeMedicine : MonoBehaviour
     {
         // 게임 목표 설정
         System.Random random = new System.Random();
-        red = random.Next(4);
-        blue = random.Next(4);
-        if (red == 0 && blue == 0)  // 둘 다 0개가 되지 않게
-            red = 1;
+        redGoal = random.Next(4);
+        blueGoal = random.Next(4);
+        if (redGoal == 0 && blueGoal == 0)  // 둘 다 0개가 되지 않게
+            redGoal = 1;
 
         // 목표 표시
-        redNumText.text = red.ToString();
-        blueNumText.text = blue.ToString();
+        redNumText.text = redGoal.ToString();
+        blueNumText.text = blueGoal.ToString();
     }
 
     // 게임 목표 확인 버튼 클릭 메소드
@@ -103,5 +103,34 @@ public class TakeMedicine : MonoBehaviour
 
             yield return new WaitForSeconds(1.0f);
         }
+
+        EndGame();
+    }
+
+    private void EndGame()
+    {
+        SetResult();
+    }
+
+    private void SetResult()
+    {
+       if (CheckSuccess())
+        {
+            Debug.Log("Success");
+        }
+        else
+        {
+            Debug.Log("Fail");
+        }
+    }
+
+    // 게임 성공 여부 확인하기
+    private bool CheckSuccess()
+    {
+        // 먹은 약의 개수와 목표가 일치하는지 확인
+        if (redScore == redGoal && blueScore == blueGoal)
+            return true;
+        else
+            return false;
     }
 }
