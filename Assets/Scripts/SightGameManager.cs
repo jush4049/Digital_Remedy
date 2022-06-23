@@ -156,7 +156,7 @@ public class SightGameManager : MonoBehaviour
 
     public void GoScene()
     {
-        SceneManage.LoadScene("Chapter3");
+        SceneManager.LoadScene("Chapter3");
     }
 
     // 다시 시작 클릭

@@ -21,6 +21,7 @@ public class GameSelect : MonoBehaviour
     public void ClickStory()
     {
         Debug.Log("스토리 모드 클릭");
+        SceneManager.LoadScene("Chapter1");
     }
 
     public void ClickSight()
