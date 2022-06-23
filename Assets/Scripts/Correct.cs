@@ -29,9 +29,7 @@ public class Correct : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         CorrectText.text = "정답입니다!";
         yield return new WaitForSeconds(3.0f);
-
         SceneManager.LoadScene("MainMenu");
-
     }
     public void OnPointerDown(PointerEventData pointerEventData) // 버튼을 누를 시
     {

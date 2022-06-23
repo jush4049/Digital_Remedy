@@ -9,12 +9,14 @@ public class GameStart : MonoBehaviour
     public Text InfoText;
     public GameObject TimerText;
     public GameObject PictureAndSound;
+    public GameObject Answer;
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(GameReady());
         TimerText.SetActive(false);
         PictureAndSound.SetActive(false);
+        Answer.SetActive(false);
     }
 
     // Update is called once per frame
