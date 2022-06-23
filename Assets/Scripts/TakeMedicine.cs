@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TakeMedicine : MonoBehaviour
 {
@@ -16,53 +17,53 @@ public class TakeMedicine : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI remainTimeText;
 
-    // ¾à ÇÁ¸®ÆÕ
+    // ì•½ í”„ë¦¬íŒ¹
     [SerializeField]
     private GameObject redPill;
     [SerializeField]
     private GameObject bluePill;
 
     [SerializeField]
-    private int playTime;   // °ÔÀÓ ÁøÇà ½Ã°£
+    private int playTime;   // ê²Œì„ ì§„í–‰ ì‹œê°„
 
-    private int redGoal, blueGoal;  // ¾à¸¶´Ù ¸Ô¾î¾ß ÇÏ´Â ¼ö·®
-    private int height, width;    // È­¸é Å©±â
-    private int redScore, blueScore;    // ¸ÔÀº ¾à °³¼ö
-    private int remainTime; // ³²Àº ½Ã°£
+    private int redGoal, blueGoal;  // ì•½ë§ˆë‹¤ ë¨¹ì–´ì•¼ í•˜ëŠ” ìˆ˜ëŸ‰
+    private int height, width;    // í™”ë©´ í¬ê¸°
+    private int redScore, blueScore;    // ë¨¹ì€ ì•½ ê°œìˆ˜
+    private int remainTime; // ë‚¨ì€ ì‹œê°„
 
-    private Vector3 mousePosition;  // Å¬¸¯ÇÑ ÁÂÇ¥
+    private Vector3 mousePosition;  // í´ë¦­í•œ ì¢Œí‘œ
     private float maxDistance = 15f;
 
     // Start is called before the first frame update
     void Start()
     {
-        // È­¸é Å©±â ±¸ÇÏ±â
+        // í™”ë©´ í¬ê¸° êµ¬í•˜ê¸°
         height = (int)(Camera.main.orthographicSize);
         width = (int)(height * Camera.main.aspect);
 
-        // ³²Àº ½Ã°£ ¼¼ÆÃ
+        // ë‚¨ì€ ì‹œê°„ ì„¸íŒ…
         remainTime = playTime;
         remainTimeText.text = remainTime.ToString();
 
-        SetGoals(); // ¸ñÇ¥ ¼³Á¤
+        SetGoals(); // ëª©í‘œ ì„¤ì •
     }
 
-    // »ç¿ëÀÚ°¡ ¾à Å¬¸¯ÇÏ¸é Á¡¼ö Áõ°¡
+    // ì‚¬ìš©ìê°€ ì•½ í´ë¦­í•˜ë©´ ì ìˆ˜ ì¦ê°€
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);    // Å¬¸¯ÇÑ ÁÂÇ¥
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);    // í´ë¦­í•œ ì¢Œí‘œ
             RaycastHit2D hit = Physics2D.Raycast(mousePosition, transform.forward, maxDistance);
             if (hit)
             {
-                if (hit.transform.gameObject.name == "RedPill(Clone)")  // »¡°£ ¾à Å¬¸¯
+                if (hit.transform.gameObject.name == "RedPill(Clone)")  // ë¹¨ê°„ ì•½ í´ë¦­
                 {
                     redScore++;
                     redScoreText.text = redScore.ToString();
                     Destroy(hit.transform.gameObject);
                 }
-                if (hit.transform.gameObject.name == "BluePill(Clone)")  // ÆÄ¶õ ¾à Å¬¸¯
+                if (hit.transform.gameObject.name == "BluePill(Clone)")  // íŒŒë€ ì•½ í´ë¦­
                 {
                     blueScore++;
                     blueScoreText.text = blueScore.ToString();
@@ -74,26 +75,26 @@ public class TakeMedicine : MonoBehaviour
 
     private void SetGoals()
     {
-        // °ÔÀÓ ¸ñÇ¥ ¼³Á¤
+        // ê²Œì„ ëª©í‘œ ì„¤ì •
         System.Random random = new System.Random();
         redGoal = random.Next(4);
         blueGoal = random.Next(4);
-        if (redGoal == 0 && blueGoal == 0)  // µÑ ´Ù 0°³°¡ µÇÁö ¾Ê°Ô
+        if (redGoal == 0 && blueGoal == 0)  // ë‘˜ ë‹¤ 0ê°œê°€ ë˜ì§€ ì•Šê²Œ
             redGoal = 1;
 
-        // ¸ñÇ¥ Ç¥½Ã
+        // ëª©í‘œ í‘œì‹œ
         redNumText.text = redGoal.ToString();
         blueNumText.text = blueGoal.ToString();
     }
 
-    // °ÔÀÓ ¸ñÇ¥ È®ÀÎ ¹öÆ° Å¬¸¯ ¸Ş¼Òµå
+    // ê²Œì„ ëª©í‘œ í™•ì¸ ë²„íŠ¼ í´ë¦­ ë©”ì†Œë“œ
     public void ClickCheckGoals()
     {
         goalsWindow.SetActive(false);
         StartCoroutine("SpawnPillCoroutine");
     }
 
-    // ¾à ½ºÆù
+    // ì•½ ìŠ¤í°
     IEnumerator SpawnPillCoroutine()
     {
         int spawnRed, spawnBlue;
@@ -101,11 +102,11 @@ public class TakeMedicine : MonoBehaviour
 
         for (int i = 0; i < playTime; i++)
         {
-            // ½ºÆùÇÒ ¾à °³¼ö °áÁ¤
+            // ìŠ¤í°í•  ì•½ ê°œìˆ˜ ê²°ì •
             spawnRed = random.Next(1, 3);
             spawnBlue = random.Next(1, 3);
 
-            // ¾à ½ºÆù
+            // ì•½ ìŠ¤í°
             for (int j = 0; j < spawnRed; j++)
                 Instantiate(redPill, new Vector3((float)random.NextDouble() * width * 2 - width, (float)random.NextDouble() * height * 2 - height, 0), Quaternion.identity);
             for (int j = 0; j < spawnBlue; j++)
@@ -114,7 +115,7 @@ public class TakeMedicine : MonoBehaviour
 
             yield return new WaitForSeconds(1.0f);
 
-            // ³²Àº ½Ã°£ ¾÷µ¥ÀÌÆ®
+            // ë‚¨ì€ ì‹œê°„ ì—…ë°ì´íŠ¸
             remainTime--;
             remainTimeText.text = remainTime.ToString();
         }
@@ -139,10 +140,10 @@ public class TakeMedicine : MonoBehaviour
         }
     }
 
-    // °ÔÀÓ ¼º°ø ¿©ºÎ È®ÀÎÇÏ±â
+    // ê²Œì„ ì„±ê³µ ì—¬ë¶€ í™•ì¸í•˜ê¸°
     private bool CheckSuccess()
     {
-        // ¸ÔÀº ¾àÀÇ °³¼ö¿Í ¸ñÇ¥°¡ ÀÏÄ¡ÇÏ´ÂÁö È®ÀÎ
+        // ë¨¹ì€ ì•½ì˜ ê°œìˆ˜ì™€ ëª©í‘œê°€ ì¼ì¹˜í•˜ëŠ”ì§€ í™•ì¸
         if (redScore == redGoal && blueScore == blueGoal)
             return true;
         else
@@ -151,22 +152,22 @@ public class TakeMedicine : MonoBehaviour
 
     public void GoScene()
     {
-
+         SceneManager.LoadScene("Chapter7");
     }
 
     public void ClickRestart()
     {
         failWindow.SetActive(false);
 
-        // ³²Àº ½Ã°£ ¼¼ÆÃ
+        // ë‚¨ì€ ì‹œê°„ ì„¸íŒ…
         remainTime = playTime;
         remainTimeText.text = remainTime.ToString();
 
-        // ½ºÄÚ¾î ÃÊ±âÈ­
+        // ìŠ¤ì½”ì–´ ì´ˆê¸°í™”
         redScore = blueScore = 0;
         redScoreText.text = blueScoreText.text = "0";
 
         goalsWindow.SetActive(true);
-        SetGoals(); // ¸ñÇ¥ ¼³Á¤
+        SetGoals(); // ëª©í‘œ ì„¤ì •
     }
 }
