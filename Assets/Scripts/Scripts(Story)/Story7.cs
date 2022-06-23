@@ -83,6 +83,6 @@ public class Story7 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         yield return StartCoroutine(NormalScript("나레이션", "쉬는시간..."));
         yield return StartCoroutine(NormalScript("주인공", "쉬는 동안 유튜브로 편안한 소리를 들으면서 진정을 좀 해야겠어..."));
         yield return StartCoroutine(NormalScript("나레이션", "일곱 번째 게임 '청각 게임'을 시작합니다."));
-        SceneManager.LoadScene("Chapter8");
+        SceneManager.LoadScene("Hearing");
     }
 }

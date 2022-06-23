@@ -66,6 +66,6 @@ public class Story4 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         yield return StartCoroutine(NormalScript("주인공", "아.. 괜찮아요 선생님 열심히 해볼게요."));
         yield return StartCoroutine(NormalScript("나레이션", "주인공은 크게 호흡을 내쉰 뒤 천천히 발표를 시작했다."));
         yield return StartCoroutine(NormalScript("나레이션", "네 번째 게임 '발표 게임'을 시작합니다."));
-        SceneManager.LoadScene("Chapter5");
+        SceneManager.LoadScene("Sentence");
     }
 }

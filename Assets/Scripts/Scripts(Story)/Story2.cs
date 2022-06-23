@@ -63,7 +63,6 @@ public class Story2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     IEnumerator StoryOn()
     {
-        InBusImage.SetActive(false);
         InBusImage.SetActive(true);
         yield return StartCoroutine(NormalScript("나레이션", "#2 버스 정류장"));
         yield return StartCoroutine(NormalScript("나레이션", "무사히 약을 챙겨서 나온 주인공은 오늘도 학교에 가기위해 버스를 기다리고 있다."));
@@ -71,12 +70,10 @@ public class Story2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         yield return StartCoroutine(NormalScript("나레이션", "주인공이 타는 등교 시간의 버스 안은 늘 사람이 붐빈다."));
         yield return StartCoroutine(NormalScript("주인공", "으윽....."));
         yield return StartCoroutine(NormalScript("나레이션", "오늘도 주인공은 가슴이 두근거리기 시작한다."));
-        yield return StartCoroutine(NormalScript("주인공", "오늘도 똑같아.."));
-        yield return StartCoroutine(NormalScript("나레이션", "주인공은 마음을 다잡고 상황으로 부터 벗어나려 한다."));
-        yield return StartCoroutine(NormalScript("주인공", "정신을 집중해보자.. 여긴 버스안이 아니야.."));
-        yield return StartCoroutine(NormalScript("나레이션", "주인공은 지금 생각나는 물체 3가지를 떠올려보기로 한다."));
-        yield return StartCoroutine(NormalScript("나레이션", "두 번째 게임 '시각 게임'을 시작합니다."));
-        SceneManager.LoadScene("Chapter3");
+        yield return StartCoroutine(NormalScript("주인공", "정신차리고 심호흡을 해보자.."));
+        yield return StartCoroutine(NormalScript("주인공", "후..."));
+        yield return StartCoroutine(NormalScript("나레이션", "두 번째 게임 '심호흡 게임'을 시작합니다."));
+        SceneManager.LoadScene("Breathe");
     }
 
     

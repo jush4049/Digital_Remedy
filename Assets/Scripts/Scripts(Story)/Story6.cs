@@ -75,6 +75,6 @@ public class Story6 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         yield return StartCoroutine(NormalScript("나레이션", "용기를 낸 주인공은 스스로 이겨내 보려고 노력한다."));
         yield return StartCoroutine(NormalScript("주인공", "이럴때는 가볍게 스트레칭이라도 해봐야지.."));
         yield return StartCoroutine(NormalScript("나레이션", "여섯 번째 게임 '스트레칭 게임'을 시작합니다."));
-        SceneManager.LoadScene("Chapter7");
+        SceneManager.LoadScene("Stretching");
     }
 }

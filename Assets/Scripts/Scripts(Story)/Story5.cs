@@ -80,6 +80,6 @@ public class Story5 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         yield return StartCoroutine(NormalScript("주인공", "그럴까..?"));
         yield return StartCoroutine(NormalScript("주인공", "주인공은 약을 복용하며 여러가지 생각에 잠긴다."));
         yield return StartCoroutine(NormalScript("나레이션", "다섯 번째 게임 '약 먹기 게임'을 시작합니다."));
-        SceneManager.LoadScene("Chapter6");
+        SceneManager.LoadScene("TakeMedicineGame");
     }
 }
