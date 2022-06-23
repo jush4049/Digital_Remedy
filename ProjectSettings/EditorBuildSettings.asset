@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hearing.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/GameSelect.unity
+    guid: a9dd8168ce69e45419f7182efbc5b03f
   m_configObjects: {}
