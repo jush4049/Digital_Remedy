@@ -11,7 +11,10 @@ public class TakeMedicine : MonoBehaviour
     private TextMeshProUGUI redNumText, blueNumText;
     [SerializeField]
     private TextMeshProUGUI redScoreText, blueScoreText;
+    [SerializeField]
+    private TextMeshProUGUI remainTimeText;
 
+    // 약 프리팹
     [SerializeField]
     private GameObject redPill;
     [SerializeField]
@@ -23,6 +26,7 @@ public class TakeMedicine : MonoBehaviour
     private int redGoal, blueGoal;  // 약마다 먹어야 하는 수량
     private int height, width;    // 화면 크기
     private int redScore, blueScore;    // 먹은 약 개수
+    private int remainTime; // 남은 시간
 
     private Vector3 mousePosition;  // 클릭한 좌표
     private float maxDistance = 15f;
@@ -34,7 +38,11 @@ public class TakeMedicine : MonoBehaviour
         height = (int)(Camera.main.orthographicSize);
         width = (int)(height * Camera.main.aspect);
 
-        SetGoals();
+        // 남은 시간 세팅
+        remainTime = playTime;
+        remainTimeText.text = remainTime.ToString();
+
+        SetGoals(); // 목표 설정
     }
 
     // 사용자가 약 클릭하면 점수 증가
@@ -83,6 +91,7 @@ public class TakeMedicine : MonoBehaviour
         StartCoroutine("SpawnPillCoroutine");
     }
 
+    // 약 스폰
     IEnumerator SpawnPillCoroutine()
     {
         int spawnRed, spawnBlue;
@@ -102,6 +111,10 @@ public class TakeMedicine : MonoBehaviour
 
 
             yield return new WaitForSeconds(1.0f);
+
+            // 남은 시간 업데이트
+            remainTime--;
+            remainTimeText.text = remainTime.ToString();
         }
 
         EndGame();
