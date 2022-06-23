@@ -134,6 +134,11 @@ public class StretchManager : MonoBehaviour
         return true;
     }
 
+    public void GoScene()
+    {
+
+    }
+
     public void Restart()
     {
         failWindow.SetActive(false);

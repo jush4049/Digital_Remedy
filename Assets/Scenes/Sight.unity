@@ -893,5 +893,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9165072039106819641, guid: 0dc57e3f3705c8e4a8a6f15392a727c3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165072039106819641, guid: 0dc57e3f3705c8e4a8a6f15392a727c3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165072039106819641, guid: 0dc57e3f3705c8e4a8a6f15392a727c3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 649400742}
+    - target: {fileID: 9165072039106819641, guid: 0dc57e3f3705c8e4a8a6f15392a727c3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165072039106819641, guid: 0dc57e3f3705c8e4a8a6f15392a727c3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165072039106819641, guid: 0dc57e3f3705c8e4a8a6f15392a727c3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SightGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165072039106819641, guid: 0dc57e3f3705c8e4a8a6f15392a727c3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dc57e3f3705c8e4a8a6f15392a727c3, type: 3}

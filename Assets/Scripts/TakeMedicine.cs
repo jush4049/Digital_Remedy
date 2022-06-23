@@ -149,6 +149,11 @@ public class TakeMedicine : MonoBehaviour
             return false;
     }
 
+    public void GoScene()
+    {
+
+    }
+
     public void ClickRestart()
     {
         failWindow.SetActive(false);

@@ -153,6 +153,11 @@ public class SightGameManager : MonoBehaviour
         return true;
     }
 
+    public void GoScene()
+    {
+
+    }
+
     // 다시 시작 클릭
     public void ClickRestart()
     {
