@@ -42,23 +42,24 @@ public class SentenceGameManager : MonoBehaviour
 
     void Mix()  //wordList1ÀÌ¶û wordList2 µÑ´Ù ¹Í½ºÇÏ±â
     {
-        List<string> newList = new List<string>();
+        List<string> newList1 = new List<string>();
+        List<string> newList2 = new List<string>();
 
         for(int i=0; i<3; i++)
         {
             int rand = Random.Range(0, wordList1.Count);
-            newList.Add(wordList1[rand]);
+            newList1.Add(wordList1[rand]);
             wordList1.RemoveAt(rand);
         }
-        mixList1 = newList;
+        mixList1 = newList1;
 
         for(int i=0; i<3; i++)
         {
             int rand = Random.Range(0, wordList2.Count);
-            newList.Add(wordList2[rand]);
+            newList2.Add(wordList2[rand]);
             wordList2.RemoveAt(rand);
         }
-        mixList2 = newList;
+        mixList2 = newList2;
 
         AppendButtonText();
     }
@@ -93,10 +94,12 @@ public class SentenceGameManager : MonoBehaviour
         if (DecideAnswer(choice))
         {
             Debug.Log("Correct!");
+            clickChoicesList.Clear();
         }
         else
         {
-            Debug.Log("Wrong!");
+            Debug.Log("Wrong! try again");
+            clickChoicesList.Clear();
         }
     }
 
