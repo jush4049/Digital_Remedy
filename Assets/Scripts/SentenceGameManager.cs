@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class SentenceGameManager : MonoBehaviour
 {
@@ -37,12 +38,13 @@ public class SentenceGameManager : MonoBehaviour
     public GameObject correctAnswerObject;
     public GameObject wrongAnswerObject;
     public GameObject wrongAnswerObject2;
-
+    public GameObject GoSceneButton;
     private int currentCanvasNumber;
 
     // Start is called before the first frame update
     void Start()
     {
+        GoSceneButton.SetActive(false);
         currentCanvasNumber = 1;
 
         currentAnswerIndex1 = 0;
@@ -86,6 +88,7 @@ public class SentenceGameManager : MonoBehaviour
         Debug.Log("버튼 재활성화!");
         for (int i = 0; i < btnList.Count; i++)
             btnList[i].interactable = true;
+        GoSceneButton.SetActive(true);
     }
 
     private void loadInitialText() // answerList의 text값들을 initailText에 저장
@@ -184,7 +187,10 @@ public class SentenceGameManager : MonoBehaviour
             currentAnswerIndex2 = 0;
 
     }
-
+    public void GoScene()
+    {
+        SceneManager.LoadScene("Chapter5");
+    }
     void ShowResult(List<string> choice)
     {
         if (DecideAnswer(choice)) // 정답
@@ -197,7 +203,9 @@ public class SentenceGameManager : MonoBehaviour
             clickChoicesList.Clear();
 
             currentCanvasNumber++;
+
         }
+
         else // 오답
         {
             Debug.Log("Wrong! try again");

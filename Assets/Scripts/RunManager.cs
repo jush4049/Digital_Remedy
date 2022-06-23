@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RunManager : MonoBehaviour
 {
@@ -16,10 +17,17 @@ public class RunManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI instructionText;
 
+    public GameObject GoSceneButton;
     // Start is called before the first frame update
     void Start()
     {
         //StartCoroutine("Run");
+        GoSceneButton.SetActive(false);
+    }
+
+    public void GoScene()
+    {
+        SceneManager.LoadScene("Chapter4");
     }
 
     // Update is called once per frame
@@ -37,6 +45,7 @@ public class RunManager : MonoBehaviour
                 break;
             case 100:
                 instructionText.text = "수고하셨습니다!";
+                GoSceneButton.SetActive(true);
                 break;
             default:
                 break;
