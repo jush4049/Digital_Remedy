@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TakeMedicine : MonoBehaviour
 {
@@ -151,7 +152,7 @@ public class TakeMedicine : MonoBehaviour
 
     public void GoScene()
     {
-
+        SceneManager.LoadScene("Chapter7");
     }
 
     public void ClickRestart()

@@ -5,19 +5,79 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Lock_Game.unity
-    guid: 1af8c2739e870764a876661410fa62e2
+    path: Assets/Scenes/MainMenu.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Sight.unity
-    guid: 7d59933f81996fc40b2e787b80f75073
+    path: Assets/Scenes/Breathe.unity
+    guid: 8b663ac57724b6f4585a3bcafa87b29d
+  - enabled: 1
+    path: Assets/Scenes/Chapter1.unity
+    guid: 2ebfd2b31899ffb499817505483f35f8
+  - enabled: 1
+    path: Assets/Scenes/Chapter2.unity
+    guid: dfa7bdb161ce86941b5bea52a4c0d9c3
+  - enabled: 1
+    path: Assets/Scenes/Chapter2_1.unity
+    guid: 9dce6bd9c7f0fe24d82d920cb0b8ef84
+  - enabled: 1
+    path: Assets/Scenes/Chapter3.unity
+    guid: b22e3e0e1ed31c449b92bb562d20852b
+  - enabled: 1
+    path: Assets/Scenes/Chapter4.unity
+    guid: 71c96f016ae30224bae94d0d301043e5
+  - enabled: 1
+    path: Assets/Scenes/Chapter5.unity
+    guid: e3308da41766f954d8d1f2c35b443efb
+  - enabled: 1
+    path: Assets/Scenes/Chapter6.unity
+    guid: 9d10c79c25eecf84cae4c1c0fcf2731b
+  - enabled: 1
+    path: Assets/Scenes/Chapter7.unity
+    guid: 58f55230bdd473341931f5b2ccc3b49c
+  - enabled: 1
+    path: Assets/Scenes/Chapter8.unity
+    guid: a77a48edf6a37114bb6d3b8e9f280eed
+  - enabled: 1
+    path: Assets/Scenes/Chapter8_1.unity
+    guid: 638abdeb688ea1c4f90ed289a25f9dd0
+  - enabled: 1
+    path: Assets/Scenes/Chapter8_2.unity
+    guid: 41af1583a0eea01409ac9e641268c7af
+  - enabled: 1
+    path: Assets/Scenes/Chapter8_3.unity
+    guid: 5dabcb4d64b39ca4b9261b91822b55df
+  - enabled: 1
+    path: Assets/Scenes/Chapter8_4.unity
+    guid: ec78fb032cf908e40affd0986a7b0d04
+  - enabled: 1
+    path: Assets/Scenes/Chapter9.unity
+    guid: 08e619062c665894885324dc337e8620
+  - enabled: 1
+    path: Assets/Scenes/GameSelect.unity
+    guid: a9dd8168ce69e45419f7182efbc5b03f
   - enabled: 1
     path: Assets/Scenes/Hearing.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/GameSelect.unity
-    guid: a9dd8168ce69e45419f7182efbc5b03f
+    path: Assets/Scenes/Lock_Game.unity
+    guid: 1af8c2739e870764a876661410fa62e2
+  - enabled: 1
+    path: Assets/Scenes/PhoneNumberGame.unity
+    guid: a21d5280ec63344bcbf2a298cfb83c5d
+  - enabled: 1
+    path: Assets/Scenes/Run.unity
+    guid: 8b19b2dded900c14aa3893a46d25effb
+  - enabled: 1
+    path: Assets/Scenes/Sentence.unity
+    guid: 6d8dc7bd295dff74ea5f6a4918e70710
+  - enabled: 1
+    path: Assets/Scenes/Sight.unity
+    guid: 7d59933f81996fc40b2e787b80f75073
+  - enabled: 1
+    path: Assets/Scenes/Stretching.unity
+    guid: e3c5390c9e6412749baa2880232834d9
+  - enabled: 1
+    path: Assets/Scenes/TakeMedicineGame.unity
+    guid: c4ec5b4f80acb374fac571c39a36327a
   m_configObjects: {}
