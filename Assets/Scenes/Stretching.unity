@@ -632,6 +632,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: FailWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 3839518992525687966, guid: ef334ce8d42adc946a5d874a288e844c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1930151924}
+    - target: {fileID: 3839518992525687966, guid: ef334ce8d42adc946a5d874a288e844c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839518992525687966, guid: ef334ce8d42adc946a5d874a288e844c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StretchManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef334ce8d42adc946a5d874a288e844c, type: 3}
 --- !u!224 &655020011 stripped

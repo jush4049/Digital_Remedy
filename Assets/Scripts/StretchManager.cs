@@ -133,4 +133,21 @@ public class StretchManager : MonoBehaviour
         }
         return true;
     }
+
+    public void Restart()
+    {
+        failWindow.SetActive(false);
+
+        // 리스트 초기화
+        orderList = new List<int>();
+        correctChoicesList = new List<GameObject>();
+        clickChoicesList = new List<GameObject>();
+
+        // 정답 맞추기 창 초기화
+        choices.SetActive(false);
+        foreach (GameObject btn in buttonList)  // 클릭 순서 표시 텍스트 초기화
+            btn.transform.Find("Order").GetComponent<TextMeshProUGUI>().text = "";
+
+        SelectOrder();  // 스트레치 순서 정하기
+    }
 }
