@@ -9,6 +9,8 @@ public class TakeMedicine : MonoBehaviour
     private GameObject goalsWindow;
     [SerializeField]
     private TextMeshProUGUI redNumText, blueNumText;
+    [SerializeField]
+    private TextMeshProUGUI redScoreText, blueScoreText;
 
     [SerializeField]
     private GameObject redPill;
@@ -20,6 +22,10 @@ public class TakeMedicine : MonoBehaviour
 
     private int red, blue;  // 약마다 먹어야 하는 수량
     private int height, width;    // 화면 크기
+    private int redScore, blueScore;    // 먹은 약 개수
+
+    private Vector3 mousePosition;  // 클릭한 좌표
+    private float maxDistance = 15f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,12 +37,37 @@ public class TakeMedicine : MonoBehaviour
         SetGoals();
     }
 
+    // 사용자가 약 클릭하면 점수 증가
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);    // 클릭한 좌표
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, transform.forward, maxDistance);
+            if (hit)
+            {
+                if (hit.transform.gameObject.name == "RedPill(Clone)")  // 빨간 약 클릭
+                {
+                    redScore++;
+                    redScoreText.text = redScore.ToString();
+                    Destroy(hit.transform.gameObject);
+                }
+                if (hit.transform.gameObject.name == "BluePill(Clone)")  // 파란 약 클릭
+                {
+                    blueScore++;
+                    blueScoreText.text = blueScore.ToString();
+                    Destroy(hit.transform.gameObject);
+                }
+            }
+        }
+    }
+
     private void SetGoals()
     {
         // 게임 목표 설정
         System.Random random = new System.Random();
-        red = random.Next(2);
-        blue = random.Next(2);
+        red = random.Next(4);
+        blue = random.Next(4);
         if (red == 0 && blue == 0)  // 둘 다 0개가 되지 않게
             red = 1;
 
@@ -54,8 +85,6 @@ public class TakeMedicine : MonoBehaviour
 
     IEnumerator SpawnPillCoroutine()
     {
-        Debug.Log("SpawnPillCoroutine");
-
         int spawnRed, spawnBlue;
         System.Random random = new System.Random();
 
@@ -64,7 +93,6 @@ public class TakeMedicine : MonoBehaviour
             // 스폰할 약 개수 결정
             spawnRed = random.Next(1, 3);
             spawnBlue = random.Next(1, 3);
-            Debug.Log(spawnRed + " " + spawnBlue);
 
             // 약 스폰
             for (int j = 0; j < spawnRed; j++)
