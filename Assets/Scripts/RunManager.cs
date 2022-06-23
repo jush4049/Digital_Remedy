@@ -21,6 +21,7 @@ public class RunManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SceneManager.LoadScene("Chapter4");
         //StartCoroutine("Run");
         GoSceneButton.SetActive(false);
     }
