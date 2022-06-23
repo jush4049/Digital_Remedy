@@ -6,7 +6,7 @@ using UnityEngine;
 public class TakeMedicine : MonoBehaviour
 {
     [SerializeField]
-    private GameObject resultWindow;
+    private GameObject successWindow, failWindow;
     [SerializeField]
     private GameObject goalsWindow;
     [SerializeField]
@@ -131,13 +131,12 @@ public class TakeMedicine : MonoBehaviour
     {
        if (CheckSuccess())
         {
-            resultWindow.transform.Find("ResultText").GetComponent<TextMeshProUGUI>().text = "성공!";
+            successWindow.SetActive(true);
         }
         else
         {
-            resultWindow.transform.Find("ResultText").GetComponent<TextMeshProUGUI>().text = "실패..";
+            failWindow.SetActive(true);
         }
-        resultWindow.SetActive(true);
     }
 
     // 게임 성공 여부 확인하기
@@ -148,5 +147,21 @@ public class TakeMedicine : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    public void ClickRestart()
+    {
+        failWindow.SetActive(false);
+
+        // 남은 시간 세팅
+        remainTime = playTime;
+        remainTimeText.text = remainTime.ToString();
+
+        // 스코어 초기화
+        redScore = blueScore = 0;
+        redScoreText.text = blueScoreText.text = "0";
+
+        goalsWindow.SetActive(true);
+        SetGoals(); // 목표 설정
     }
 }
