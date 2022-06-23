@@ -9,23 +9,23 @@ using UnityEngine.SceneManagement;
 public class SightGameManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject choices;     // ì„ íƒì§€ ë²„íŠ¼ ëª¨ìŒ
+    private GameObject choices;     // ¼±ÅÃÁö ¹öÆ° ¸ğÀ½
     [SerializeField]
-    private List<GameObject> buttonList;     // ì„ íƒì§€ ë²„íŠ¼
+    private List<GameObject> buttonList;     // ¼±ÅÃÁö ¹öÆ°
     [SerializeField]
-    private GameObject successWindow, failWindow;   // ê²°ê³¼ì°½
+    private GameObject successWindow, failWindow;   // °á°úÃ¢
     [SerializeField]
-    private Vector3 spawnPosition;  // ë¬¼ì²´ ìƒì„± ìœ„ì¹˜
+    private Vector3 spawnPosition;  // ¹°Ã¼ »ı¼º À§Ä¡
     [SerializeField]
-    private float delayTime;        // ë¬¼ì²´ê°€ ìƒì„±ë˜ëŠ” ì‹œê°„ ê°„ê²©
+    private float delayTime;        // ¹°Ã¼°¡ »ı¼ºµÇ´Â ½Ã°£ °£°İ
 
-    private List<string> objectList;    // ë¬¼ì²´ ë¦¬ìŠ¤íŠ¸
-    private List<string> spawnObjectList;       // ìŠ¤í°í•  ë¬¼ì²´ ì´ë¦„ ë¦¬ìŠ¤íŠ¸
-    private List<Sprite> spriteList;            // ìŠ¤í°í•œ ë¬¼ì²´ì˜ ì´ë¯¸ì§€ ë¦¬ìŠ¤íŠ¸
-    private List<GameObject> correctChoicesList;    // ì„ íƒì§€ ìˆœì„œ ì •ë‹µ ë¦¬ìŠ¤íŠ¸
-    private List<GameObject> clickChoicesList;       // í´ë¦­í•œ ì„ íƒì§€ ë¦¬ìŠ¤íŠ¸
+    private List<string> objectList;    // ¹°Ã¼ ¸®½ºÆ®
+    private List<string> spawnObjectList;       // ½ºÆùÇÒ ¹°Ã¼ ÀÌ¸§ ¸®½ºÆ®
+    private List<Sprite> spriteList;            // ½ºÆùÇÑ ¹°Ã¼ÀÇ ÀÌ¹ÌÁö ¸®½ºÆ®
+    private List<GameObject> correctChoicesList;    // ¼±ÅÃÁö ¼ø¼­ Á¤´ä ¸®½ºÆ®
+    private List<GameObject> clickChoicesList;       // Å¬¸¯ÇÑ ¼±ÅÃÁö ¸®½ºÆ®
 
-    private int spawnNum = 3;     // ìŠ¤í°í•  ë¬¼ì²´ ê°œìˆ˜
+    private int spawnNum = 3;     // ½ºÆùÇÒ ¹°Ã¼ °³¼ö
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +36,11 @@ public class SightGameManager : MonoBehaviour
         correctChoicesList = new List<GameObject>();
         clickChoicesList = new List<GameObject>();
 
-        SelectRandomObject();   // ìŠ¤í°í•  3ê°œì˜ ë¬¼ì²´ ê³ ë¥´ê¸°
-        StartCoroutine("SpawnObjectCoroutine"); // delayTimeë§ˆë‹¤ ë¬¼ì²´ ìŠ¤í°
+        SelectRandomObject();   // ½ºÆùÇÒ 3°³ÀÇ ¹°Ã¼ °í¸£±â
+        StartCoroutine("SpawnObjectCoroutine"); // delayTime¸¶´Ù ¹°Ã¼ ½ºÆù
     }
 
-    // ìŠ¤í°í•  3ê°œì˜ ë¬¼ì²´ ê³ ë¥´ê¸°
+    // ½ºÆùÇÒ 3°³ÀÇ ¹°Ã¼ °í¸£±â
     private void SelectRandomObject()
     {
         string objectName;
@@ -54,10 +54,10 @@ public class SightGameManager : MonoBehaviour
         }
     }
 
-    // delayTimeë§ˆë‹¤ ë¬¼ì²´ ìŠ¤í°
+    // delayTime¸¶´Ù ¹°Ã¼ ½ºÆù
     IEnumerator SpawnObjectCoroutine()
     {
-        List<GameObject> spawnList = new List<GameObject>();    // ìŠ¤í°í•œ ì˜¤ë¸Œì íŠ¸ë¥¼ ë‹´ì„ ë¦¬ìŠ¤íŠ¸
+        List<GameObject> spawnList = new List<GameObject>();    // ½ºÆùÇÑ ¿ÀºêÁ§Æ®¸¦ ´ãÀ» ¸®½ºÆ®
         foreach (string objName in spawnObjectList)
         {
             GameObject prefab = Resources.Load("Prefabs/" + objName) as GameObject;
@@ -66,20 +66,20 @@ public class SightGameManager : MonoBehaviour
             yield return new WaitForSeconds(delayTime);
         }
 
-        // ìŠ¤í°í–ˆë˜ ì˜¤ë¸Œì íŠ¸ íŒŒê´´
+        // ½ºÆùÇß´ø ¿ÀºêÁ§Æ® ÆÄ±«
         foreach (GameObject obj in spawnList)
             Destroy(obj);
 
-        SetChoices();   // ì„ íƒì§€ì— ì´ë¯¸ì§€ ì„¸íŒ…
-        ShowChoices();  // ì„ íƒì§€ ë³´ì—¬ì£¼ê¸°
+        SetChoices();   // ¼±ÅÃÁö¿¡ ÀÌ¹ÌÁö ¼¼ÆÃ
+        ShowChoices();  // ¼±ÅÃÁö º¸¿©ÁÖ±â
     }
 
-    // ì„ íƒì§€ì— ì´ë¯¸ì§€ ì„¸íŒ…
+    // ¼±ÅÃÁö¿¡ ÀÌ¹ÌÁö ¼¼ÆÃ
     private void SetChoices()
     {
         GameObject button;
         System.Random random = new System.Random();
-        foreach (Sprite sprite in spriteList)       // ì •ë‹µ ì´ë¯¸ì§€ ì„ íƒì§€ì— ì„¸íŒ…
+        foreach (Sprite sprite in spriteList)       // Á¤´ä ÀÌ¹ÌÁö ¼±ÅÃÁö¿¡ ¼¼ÆÃ
         {
             do
             {
@@ -89,34 +89,34 @@ public class SightGameManager : MonoBehaviour
             button.transform.Find("Image").GetComponent<Image>().sprite = sprite;
         }
 
-        // ë‚˜ë¨¸ì§€ ì„ íƒì§€ì—ëŠ” ì˜¤ë‹µ ì´ë¯¸ì§€ ì„¸íŒ…
+        // ³ª¸ÓÁö ¼±ÅÃÁö¿¡´Â ¿À´ä ÀÌ¹ÌÁö ¼¼ÆÃ
         foreach (GameObject btn in buttonList)
         {
-            if (!correctChoicesList.Exists(x=>x==btn))  // btnì´ ì•„ì§ ì´ë¯¸ì§€ê°€ ì„¸íŒ…ë˜ì§€ ì•Šì€ ì„ íƒì§€
+            if (!correctChoicesList.Exists(x=>x==btn))  // btnÀÌ ¾ÆÁ÷ ÀÌ¹ÌÁö°¡ ¼¼ÆÃµÇÁö ¾ÊÀº ¼±ÅÃÁö
             {
                 string objectName;
                 do
                 {
                     objectName = objectList[random.Next(objectList.Count)];
-                } while (spawnObjectList.Exists(x => x == objectName)); // ì •ë‹µì´ ì•„ë‹Œ ë¬¼ì²´ ê²°ì •
+                } while (spawnObjectList.Exists(x => x == objectName)); // Á¤´äÀÌ ¾Æ´Ñ ¹°Ã¼ °áÁ¤
 
-                // ì•„ì§ ì´ë¯¸ì§€ê°€ ì„¸íŒ…ë˜ì§€ ì•Šì€ ì„ íƒì§€ì— ì •ë‹µì´ ì•„ë‹Œ ì´ë¯¸ì§€ ì„¸íŒ…
+                // ¾ÆÁ÷ ÀÌ¹ÌÁö°¡ ¼¼ÆÃµÇÁö ¾ÊÀº ¼±ÅÃÁö¿¡ Á¤´äÀÌ ¾Æ´Ñ ÀÌ¹ÌÁö ¼¼ÆÃ
                 GameObject prefab = Resources.Load("Prefabs/" + objectName) as GameObject;
                 btn.transform.Find("Image").GetComponent<Image>().sprite = prefab.GetComponent<SpriteRenderer>().sprite;
             }
         }
     }
 
-    // ë¬¼ì²´ê°€ ë‹¤ ë‚ ì•„ê°„ í›„ ì„ íƒì§€ ë³´ì—¬ì£¼ê¸°
+    // ¹°Ã¼°¡ ´Ù ³¯¾Æ°£ ÈÄ ¼±ÅÃÁö º¸¿©ÁÖ±â
     private void ShowChoices()
     {
         choices.SetActive(true);
     }
 
-    // ì„ íƒì§€ ë²„íŠ¼ í´ë¦­
+    // ¼±ÅÃÁö ¹öÆ° Å¬¸¯
     public void ClickChoiceButton()
     {
-        Debug.Log("í´ë¦­!");
+        Debug.Log("Å¬¸¯!");
         GameObject currentObj = EventSystem.current.currentSelectedGameObject;
         if (!clickChoicesList.Exists(x => x == currentObj))
         {
@@ -130,7 +130,7 @@ public class SightGameManager : MonoBehaviour
 
     private void ShowResult()
     {
-        if (clickChoicesList.Count == spawnNum) // ëª¨ë‘ ì„ íƒí–ˆìœ¼ë©´ ì •ë‹µì¸ì§€ í™•ì¸
+        if (clickChoicesList.Count == spawnNum) // ¸ğµÎ ¼±ÅÃÇßÀ¸¸é Á¤´äÀÎÁö È®ÀÎ
         {
             if (DecideAnswer())
             {
@@ -159,24 +159,24 @@ public class SightGameManager : MonoBehaviour
         SceneManager.LoadScene("Chapter3");
     }
 
-    // ë‹¤ì‹œ ì‹œì‘ í´ë¦­
+    // ´Ù½Ã ½ÃÀÛ Å¬¸¯
     public void ClickRestart()
     {
         failWindow.SetActive(false);
 
-        // ë¦¬ìŠ¤íŠ¸ ì´ˆê¸°í™”
+        // ¸®½ºÆ® ÃÊ±âÈ­
         spawnObjectList = new List<string>();
         spriteList = new List<Sprite>();
         correctChoicesList = new List<GameObject>();
         clickChoicesList = new List<GameObject>();
 
-        // í´ë¦­ ìˆœì„œ í‘œì‹œ í…ìŠ¤íŠ¸ ì´ˆê¸°í™”
+        // Å¬¸¯ ¼ø¼­ Ç¥½Ã ÅØ½ºÆ® ÃÊ±âÈ­
         foreach (GameObject btn in buttonList)
         {
             btn.transform.Find("Order").GetComponent<TextMeshProUGUI>().text = "";
         }
 
-        SelectRandomObject();   // ìŠ¤í°í•  3ê°œì˜ ë¬¼ì²´ ê³ ë¥´ê¸°
-        StartCoroutine("SpawnObjectCoroutine"); // delayTimeë§ˆë‹¤ ë¬¼ì²´ ìŠ¤í°
+        SelectRandomObject();   // ½ºÆùÇÒ 3°³ÀÇ ¹°Ã¼ °í¸£±â
+        StartCoroutine("SpawnObjectCoroutine"); // delayTime¸¶´Ù ¹°Ã¼ ½ºÆù
     }
 }

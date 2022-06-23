@@ -4,35 +4,34 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class StretchManager : MonoBehaviour
 {
-    [SerializeField] GameObject successWindow, failWindow;  // ê²°ê³¼ì°½
+    [SerializeField] GameObject successWindow, failWindow;  // °á°úÃ¢
     [SerializeField]
-    private Image humanImage;   // ìŠ¤íŠ¸ë ˆì¹­ ì‚¬ì§„
+    private Image humanImage;   // ½ºÆ®·¹Äª »çÁø
     [SerializeField]
-    private TextMeshProUGUI instruction;    // ì§€ì‹œë¬¸ í…ìŠ¤íŠ¸
+    private TextMeshProUGUI instruction;    // Áö½Ã¹® ÅØ½ºÆ®
     [SerializeField]
-    private GameObject choices;     // ì„ íƒì§€ ë²„íŠ¼ ëª¨ìŒ
+    private GameObject choices;     // ¼±ÅÃÁö ¹öÆ° ¸ğÀ½
     [SerializeField]
-    private List<GameObject> buttonList;    // í™”ë©´ì— ë°°ì¹˜ëœ ì„ íƒì§€ ë²„íŠ¼ ë¦¬ìŠ¤íŠ¸
+    private List<GameObject> buttonList;    // È­¸é¿¡ ¹èÄ¡µÈ ¼±ÅÃÁö ¹öÆ° ¸®½ºÆ®
 
     [SerializeField]
-    private List<Sprite> imageList; // ìŠ¤íŠ¸ë ˆì¹­ ì‚¬ì§„ ë¦¬ìŠ¤íŠ¸
+    private List<Sprite> imageList; // ½ºÆ®·¹Äª »çÁø ¸®½ºÆ®
     [SerializeField]
-    private List<string> instructionList;   // ì§€ì‹œë¬¸ ë¦¬ìŠ¤íŠ¸
+    private List<string> instructionList;   // Áö½Ã¹® ¸®½ºÆ®
     [SerializeField]
-    private int stretchTime;    // ìŠ¤íŠ¸ë ˆì¹­ ì‹œê°„
+    private int stretchTime;    // ½ºÆ®·¹Äª ½Ã°£
     [SerializeField]
-    private int stretchNum;  // ìŠ¤íŠ¸ë ˆì¹­í•  ê°œìˆ˜
+    private int stretchNum;  // ½ºÆ®·¹ÄªÇÒ °³¼ö
 
 
-    private List<GameObject> correctChoicesList;    // ì„ íƒì§€ ìˆœì„œ ì •ë‹µ ë¦¬ìŠ¤íŠ¸
-    private List<GameObject> clickChoicesList;       // í´ë¦­í•œ ì„ íƒì§€ ë¦¬ìŠ¤íŠ¸
+    private List<GameObject> correctChoicesList;    // ¼±ÅÃÁö ¼ø¼­ Á¤´ä ¸®½ºÆ®
+    private List<GameObject> clickChoicesList;       // Å¬¸¯ÇÑ ¼±ÅÃÁö ¸®½ºÆ®
 
-    private List<int> orderList;    // ìŠ¤íŠ¸ë ˆì¹­ ìˆœì„œ
-    private int stretchKind;     // ìŠ¤íŠ¸ë ˆì¹­ ì¢…ë¥˜
+    private List<int> orderList;    // ½ºÆ®·¹Äª ¼ø¼­
+    private int stretchKind;     // ½ºÆ®·¹Äª Á¾·ù
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +42,7 @@ public class StretchManager : MonoBehaviour
         correctChoicesList = new List<GameObject>();
         clickChoicesList = new List<GameObject>();
         
-        SelectOrder();  // ìŠ¤íŠ¸ë ˆì¹˜ ìˆœì„œ ì •í•˜ê¸°
+        SelectOrder();  // ½ºÆ®·¹Ä¡ ¼ø¼­ Á¤ÇÏ±â
     }
 
     private void SelectOrder()
@@ -73,18 +72,18 @@ public class StretchManager : MonoBehaviour
         ShowChoices();
     }
 
-    // ë¬¼ì²´ê°€ ë‹¤ ë‚ ì•„ê°„ í›„ ì„ íƒì§€ ë³´ì—¬ì£¼ê¸°
+    // ¹°Ã¼°¡ ´Ù ³¯¾Æ°£ ÈÄ ¼±ÅÃÁö º¸¿©ÁÖ±â
     private void ShowChoices()
     {
         choices.SetActive(true);
     }
 
-    // ì„ íƒì§€ì— ì´ë¯¸ì§€ ì„¸íŒ…
+    // ¼±ÅÃÁö¿¡ ÀÌ¹ÌÁö ¼¼ÆÃ
     private void SetChoices()
     {
         GameObject button;
         System.Random random = new System.Random();
-        foreach (int idx in orderList)       // ì •ë‹µ ì´ë¯¸ì§€ ì„ íƒì§€ì— ì„¸íŒ…
+        foreach (int idx in orderList)       // Á¤´ä ÀÌ¹ÌÁö ¼±ÅÃÁö¿¡ ¼¼ÆÃ
         {
             do
             {
@@ -95,10 +94,10 @@ public class StretchManager : MonoBehaviour
         }
     }
 
-    // ì„ íƒì§€ ë²„íŠ¼ í´ë¦­
+    // ¼±ÅÃÁö ¹öÆ° Å¬¸¯
     public void ClickChoiceButton()
     {
-        Debug.Log("í´ë¦­!");
+        Debug.Log("Å¬¸¯!");
         GameObject currentObj = EventSystem.current.currentSelectedGameObject;
         if (!clickChoicesList.Exists(x => x == currentObj))
         {
@@ -112,7 +111,7 @@ public class StretchManager : MonoBehaviour
 
     private void ShowResult()
     {
-        if (clickChoicesList.Count == stretchNum) // ëª¨ë‘ ì„ íƒí–ˆìœ¼ë©´ ì •ë‹µì¸ì§€ í™•ì¸
+        if (clickChoicesList.Count == stretchNum) // ¸ğµÎ ¼±ÅÃÇßÀ¸¸é Á¤´äÀÎÁö È®ÀÎ
         {
             if (DecideAnswer())
             {
@@ -137,23 +136,23 @@ public class StretchManager : MonoBehaviour
 
     public void GoScene()
     {
-        SceneManager.LoadScene("Chapter7");
+
     }
 
     public void Restart()
     {
         failWindow.SetActive(false);
 
-        // ë¦¬ìŠ¤íŠ¸ ì´ˆê¸°í™”
+        // ¸®½ºÆ® ÃÊ±âÈ­
         orderList = new List<int>();
         correctChoicesList = new List<GameObject>();
         clickChoicesList = new List<GameObject>();
 
-        // ì •ë‹µ ë§ì¶”ê¸° ì°½ ì´ˆê¸°í™”
+        // Á¤´ä ¸ÂÃß±â Ã¢ ÃÊ±âÈ­
         choices.SetActive(false);
-        foreach (GameObject btn in buttonList)  // í´ë¦­ ìˆœì„œ í‘œì‹œ í…ìŠ¤íŠ¸ ì´ˆê¸°í™”
+        foreach (GameObject btn in buttonList)  // Å¬¸¯ ¼ø¼­ Ç¥½Ã ÅØ½ºÆ® ÃÊ±âÈ­
             btn.transform.Find("Order").GetComponent<TextMeshProUGUI>().text = "";
 
-        SelectOrder();  // ìŠ¤íŠ¸ë ˆì¹˜ ìˆœì„œ ì •í•˜ê¸°
+        SelectOrder();  // ½ºÆ®·¹Ä¡ ¼ø¼­ Á¤ÇÏ±â
     }
 }
