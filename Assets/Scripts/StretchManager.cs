@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class StretchManager : MonoBehaviour
 {
+    [SerializeField] GameObject successWindow, failWindow;  // 결과창
     [SerializeField]
     private Image humanImage;   // 스트레칭 사진
     [SerializeField]
@@ -114,11 +115,11 @@ public class StretchManager : MonoBehaviour
         {
             if (DecideAnswer())
             {
-                Debug.Log("정답!");
+                successWindow.SetActive(true);
             }
             else
             {
-                Debug.Log("오답");
+                failWindow.SetActive(true);
             }
         }
     }
