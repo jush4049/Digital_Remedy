@@ -6,6 +6,8 @@ using UnityEngine;
 public class TakeMedicine : MonoBehaviour
 {
     [SerializeField]
+    private GameObject resultWindow;
+    [SerializeField]
     private GameObject goalsWindow;
     [SerializeField]
     private TextMeshProUGUI redNumText, blueNumText;
@@ -129,12 +131,13 @@ public class TakeMedicine : MonoBehaviour
     {
        if (CheckSuccess())
         {
-            Debug.Log("Success");
+            resultWindow.transform.Find("ResultText").GetComponent<TextMeshProUGUI>().text = "성공!";
         }
         else
         {
-            Debug.Log("Fail");
+            resultWindow.transform.Find("ResultText").GetComponent<TextMeshProUGUI>().text = "실패..";
         }
+        resultWindow.SetActive(true);
     }
 
     // 게임 성공 여부 확인하기
