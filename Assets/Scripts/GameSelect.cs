@@ -18,21 +18,20 @@ public class GameSelect : MonoBehaviour
         
     }
 
+    public void ClickStory()
+    {
+        Debug.Log("스토리 모드 클릭");
+    }
+
     public void ClickSight()
     {
+        Debug.Log("시각 게임 클릭");
         SceneManager.LoadScene("Sight");
-        Debug.Log("[LoadScene]Sight");
     }
 
     public void ClickHearing()
     {
+        Debug.Log("청각 게임 클릭");
         SceneManager.LoadScene("Hearing");
-        Debug.Log("[LoadScene]Hearing");
-    }
-
-    public void ClickBreathing()
-    {
-        SceneManager.LoadScene("Hearing");
-        Debug.Log("[LoadScene]Hearing");
     }
 }
